@@ -21,7 +21,8 @@ class ComingSoon extends Component {
       this.setState({
         comingSoon: response.data.results
       })
-    } catch (error) {
+    } 
+    catch (error) {
       console.error(error);
     }
   }

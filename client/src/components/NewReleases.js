@@ -21,7 +21,8 @@ class NewReleases extends Component {
       this.setState({
         newReleases: response.data.results
       })
-    } catch (error) {
+    } 
+    catch (error) {
       console.error(error);
     }
   }
