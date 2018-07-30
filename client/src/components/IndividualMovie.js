@@ -34,7 +34,19 @@ class IndividualMovie extends Component {
             alt={`${this.state.movie.title} poster`}
           />
         </div>
-        
+        <div>
+          <h1>{this.state.movie.title}</h1>
+          <span>{this.state.movie.tagline}</span>
+          <p>{this.state.movie.overview}</p>
+        </div>
+        <div>
+          <div>
+            Released: {this.state.movie.release_date}
+          </div>
+          <div>
+            Average Score: {this.state.movie.vote_average}/10
+          </div>
+        </div>
       </div>
     );
   }
