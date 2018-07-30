@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 class NewReleases extends Component {
   state = {
@@ -32,13 +33,14 @@ class NewReleases extends Component {
         <div>
           {this.state.newReleases.map((newMovie, i) => {
             return (
-              <img
-                key={i}
-                src={newMovie.poster_path
-                  ? `https://image.tmdb.org/t/p/w342${newMovie.poster_path}`
-                  : 'http://via.placeholder.com/342x513'}
-                alt={`${newMovie.title} poster`}
-              />
+              <Link key ={i} to={`/movie/${newMovie.id}`}>
+                <img
+                  src={newMovie.poster_path
+                    ? `https://image.tmdb.org/t/p/w342${newMovie.poster_path}`
+                    : 'http://via.placeholder.com/342x513'}
+                  alt={`${newMovie.title} poster`}
+                />
+              </Link>
             )
           })}
         </div>
