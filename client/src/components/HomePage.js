@@ -1,6 +1,15 @@
 import React, { Component } from 'react';
 
 class HomePage extends Component {
+  state = {
+    newReleasesShowing: true
+  }
+
+  toggleMovieListings = () => {
+    const isShowing = !this.state.newReleasesShowing;
+    this.setState({ newReleasesShowing: isShowing });
+  }
+
   render() {
     return (
       <div>
