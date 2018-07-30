@@ -26,6 +26,14 @@ class IndividualMovie extends Component {
   render() {
     return (
       <div>
+        <div>
+          <img
+            src={this.state.movie.poster_path
+              ? `https://image.tmdb.org/t/p/w342${this.state.movie.poster_path}`
+              : 'http://via.placeholder.com/342x513'}
+            alt={`${this.state.movie.title} poster`}
+          />
+        </div>
         
       </div>
     );
