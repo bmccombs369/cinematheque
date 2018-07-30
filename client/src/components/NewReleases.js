@@ -6,7 +6,7 @@ class NewReleases extends Component {
     newReleases: []
   }
 
-  componentDidMount() {
+  async componentDidMount() {
     this.fetchNewReleases();
   }
 

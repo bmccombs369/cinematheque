@@ -6,7 +6,7 @@ class ComingSoon extends Component {
     comingSoon: []
   }
 
-  componentDidMount() {
+  async componentDidMount() {
     this.fetchComingSoon();
   }
 
@@ -37,6 +37,7 @@ class ComingSoon extends Component {
                 src={newMovie.poster_path
                   ? `https://image.tmdb.org/t/p/w342${newMovie.poster_path}`
                   : 'http://via.placeholder.com/342x513'}
+                  // make a placeholder poster a component with movie info
                 alt={`${newMovie.title} poster`}
               />
             )
