@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import NewReleases from './components/NewReleases';
-import ComingSoon from './components/ComingSoon';
 import HomePage from './components/HomePage';
-import IndvidualMovie from './components/IndvidualMovie';
+import IndividualMovie from './components/IndividualMovie';
 
 class App extends Component {
   render() {
@@ -11,7 +9,7 @@ class App extends Component {
       <Router>
         <Switch>
           <Route exact path='/' component={HomePage} />
-          <Route exact path='/movie/:id' component={IndvidualMovie} />
+          <Route exact path='/movie/:id' component={IndividualMovie} />
         </Switch>
       </Router>
     );

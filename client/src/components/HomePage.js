@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import NewReleases from './NewReleases';
+import ComingSoon from './ComingSoon';
 
 class HomePage extends Component {
   state = {
