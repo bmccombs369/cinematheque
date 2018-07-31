@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 class SearchBar extends Component {
   state = {
@@ -46,14 +47,16 @@ class SearchBar extends Component {
           {this.state.searchResults.map((searchedMovie, i) => {
             return(
               <li key={i}>
-                <img
-                  src={searchedMovie.poster_path
-                    ? `https://image.tmdb.org/t/p/w200${searchedMovie.poster_path}`
-                    : 'http://via.placeholder.com/342x513'}
-                  alt={`${searchedMovie.title} poster`}
-                />
-                <p>{searchedMovie.title}</p>
-                <p>{searchedMovie.release_date}</p>
+                <Link to={`/movie/${searchedMovie.id}`}>
+                  <img
+                    src={searchedMovie.poster_path
+                      ? `https://image.tmdb.org/t/p/w200${searchedMovie.poster_path}`
+                      : 'http://via.placeholder.com/342x513'}
+                    alt={`${searchedMovie.title} poster`}
+                  />
+                  <p>{searchedMovie.title}</p>
+                  <p>{searchedMovie.release_date}</p>
+                </Link>
               </li>
             )
           })}
