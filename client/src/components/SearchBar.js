@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { Row, Input, Icon } from 'react-materialize';
 
 class SearchBar extends Component {
   state = {
@@ -33,16 +34,21 @@ class SearchBar extends Component {
 
   render() {
     return (
-      <form onSubmit={this.preventSubmit}>
-        <input
-          onChange={this.handleChange}
-          type='text'
-          name='query'
-          value={this.state.query}
-          onKeyUp={this.handleKeyUp}
-          placeholder='Search a movie'
-          required
-        />
+      <div>
+        <Row onSubmit={this.preventSubmit}>
+          <Input
+            s={10}
+            onChange={this.handleChange}
+            type ='text'
+            name='query'
+            value={this.state.query}
+            onKeyUp={this.handleKeyUp}
+            placeholder='Search a movie'
+            validate
+            required>
+              <Icon>search</Icon>
+          </Input>
+        </Row>
         <ul>
           {this.state.searchResults.map((searchedMovie, i) => {
             return(
@@ -61,7 +67,7 @@ class SearchBar extends Component {
             )
           })}
         </ul>
-      </form>
+      </div>
     );
   }
 }
