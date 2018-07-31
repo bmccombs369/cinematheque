@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import SearchBar from './SearchBar';
 
 class NewReleases extends Component {
   state = {
@@ -30,6 +31,7 @@ class NewReleases extends Component {
   render() {
     return (
       <div>
+        <SearchBar />
         <h2>New Releases</h2>
         <div>
           {this.state.newReleases.map((newMovie, i) => {
