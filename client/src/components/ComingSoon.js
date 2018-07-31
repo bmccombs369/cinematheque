@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import SearchBar from './SearchBar';
+import { Row, Col } from 'react-materialize';
 
 class ComingSoon extends Component {
   state = {
@@ -33,21 +34,20 @@ class ComingSoon extends Component {
       <div>
         <SearchBar />
         <h2>Coming Soon</h2>
-        <div>
-          {this.state.comingSoon.map((newMovie, i) => {
+        <Row>
+          {this.state.comingSoon.map((comingMovie, i) => {
             return (
-              <Link key ={i} to={`/movie/${newMovie.id}`}>
+              <Col as={Link} s={10} m={6} l={4} xl={3} key ={i} to={`/movie/${comingMovie.id}`}>
                 <img
-                  src={newMovie.poster_path
-                    ? `https://image.tmdb.org/t/p/w342${newMovie.poster_path}`
+                  src={comingMovie.poster_path
+                    ? `https://image.tmdb.org/t/p/w342${comingMovie.poster_path}`
                     : 'http://placeholder.pics/svg/342x513/DEDEDE/555555/No%20Picture'}
-                  // make a placeholder poster a component with movie info
-                  alt={`${newMovie.title} poster`}
+                  alt={`${comingMovie.title} poster`}
                 />
-              </Link>
+              </Col>
             )
           })}
-        </div>
+        </Row>
       </div>
     );
   }

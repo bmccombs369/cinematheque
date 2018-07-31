@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import SearchBar from './SearchBar';
+import { Row, Col } from 'react-materialize';
 
 class NewReleases extends Component {
   state = {
@@ -33,20 +34,20 @@ class NewReleases extends Component {
       <div>
         <SearchBar />
         <h2>New Releases</h2>
-        <div>
+        <Row>
           {this.state.newReleases.map((newMovie, i) => {
             return (
-              <Link key ={i} to={`/movie/${newMovie.id}`}>
+              <Col as={Link} s={10} m={6} l={4} xl={3} key ={i} to={`/movie/${newMovie.id}`}>
                 <img
                   src={newMovie.poster_path
                     ? `https://image.tmdb.org/t/p/w342${newMovie.poster_path}`
                     : 'http://placeholder.pics/svg/342x513/DEDEDE/555555/No%20Picture'}
                   alt={`${newMovie.title} poster`}
                 />
-              </Link>
+              </Col>
             )
           })}
-        </div>
+        </Row>
       </div>
     );
   }
