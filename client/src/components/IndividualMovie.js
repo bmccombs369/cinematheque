@@ -7,7 +7,7 @@ class IndividualMovie extends Component {
     credits: []
   }
 
-  componentDidMount() {
+  async componentDidMount() {
     this.fetchIndividualMovie();
   }
 
