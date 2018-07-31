@@ -2,6 +2,29 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { Row, Input, Icon, Col } from 'react-materialize';
+import styled from 'styled-components';
+
+const SearchResults = styled.ul`
+  text-align: left;
+  li{
+    background-color: #36454f;
+  }
+  li:hover{
+    background-color: #000000;
+  }
+`
+
+const IndividualSearchResult = styled(Row)`
+  margin: 0;
+  p{
+    color: #ffffff;
+  }
+`
+
+const MoviePoster = styled.img`
+  width: 100px;
+  height: 150px;
+`
 
 class SearchBar extends Component {
   state = {
@@ -49,14 +72,14 @@ class SearchBar extends Component {
             <Icon>search</Icon>
           </Input>
         </Row>
-        <ul>
+        <SearchResults>
           {this.state.searchResults.map((searchedMovie, i) => {
             return (
               <li key={i}>
                 <Link to={`/movie/${searchedMovie.id}`}>
-                  <Row>
+                  <IndividualSearchResult>
                     <Col>
-                      <img
+                      <MoviePoster
                         s={4}
                         src={searchedMovie.poster_path
                           ? `https://image.tmdb.org/t/p/w200${searchedMovie.poster_path}`
@@ -68,12 +91,12 @@ class SearchBar extends Component {
                       <p>{searchedMovie.title}</p>
                       <p>{searchedMovie.release_date}</p>
                     </Col>
-                  </Row>
+                  </IndividualSearchResult>
                 </Link>
               </li>
             )
           })}
-        </ul>
+        </SearchResults>
       </div>
     );
   }
