@@ -56,7 +56,12 @@ class IndividualMovie extends Component {
               {this.state.credits.map((actor, i) => {
                 return(
                   <figure key= {i}>
-                    <img src={`https://image.tmdb.org/t/p/w200${actor.profile_path}`} alt={``} />
+                    <img
+                      src={actor.profile_path
+                        ? `https://image.tmdb.org/t/p/w200${actor.profile_path}`
+                        : 'http://placeholder.pics/svg/200x300'}
+                      alt={actor.name}
+                    />
                     <figcaption>{`${actor.name} as ${actor.character}`}</figcaption>
                   </figure>
                 )

@@ -38,7 +38,7 @@ class ComingSoon extends Component {
                 <img
                   src={newMovie.poster_path
                     ? `https://image.tmdb.org/t/p/w342${newMovie.poster_path}`
-                    : 'http://via.placeholder.com/342x513'}
+                    : 'http://placeholder.pics/svg/342x513'}
                   // make a placeholder poster a component with movie info
                   alt={`${newMovie.title} poster`}
                 />
