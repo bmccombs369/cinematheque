@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import { Row, Input, Icon } from 'react-materialize';
+import { Row, Input, Icon, Col } from 'react-materialize';
 
 class SearchBar extends Component {
   state = {
@@ -10,7 +10,7 @@ class SearchBar extends Component {
   }
 
   handleChange = async (event) => {
-    const newState = {...this.state};
+    const newState = { ...this.state };
     newState[event.target.name] = event.target.value;
     this.setState(newState);
   }
@@ -39,29 +39,36 @@ class SearchBar extends Component {
           <Input
             s={10}
             onChange={this.handleChange}
-            type ='text'
+            type='text'
             name='query'
             value={this.state.query}
             onKeyUp={this.handleKeyUp}
             placeholder='Search a movie'
             validate
             required>
-              <Icon>search</Icon>
+            <Icon>search</Icon>
           </Input>
         </Row>
         <ul>
           {this.state.searchResults.map((searchedMovie, i) => {
-            return(
+            return (
               <li key={i}>
                 <Link to={`/movie/${searchedMovie.id}`}>
-                  <img
-                    src={searchedMovie.poster_path
-                      ? `https://image.tmdb.org/t/p/w200${searchedMovie.poster_path}`
-                      : 'http://via.placeholder.com/342x513'}
-                    alt={`${searchedMovie.title} poster`}
-                  />
-                  <p>{searchedMovie.title}</p>
-                  <p>{searchedMovie.release_date}</p>
+                  <Row>
+                    <Col>
+                      <img
+                        s={4}
+                        src={searchedMovie.poster_path
+                          ? `https://image.tmdb.org/t/p/w200${searchedMovie.poster_path}`
+                          : 'http://via.placeholder.com/342x513'}
+                        alt={`${searchedMovie.title} poster`}
+                      />
+                    </Col>
+                    <Col s={6}>
+                      <p>{searchedMovie.title}</p>
+                      <p>{searchedMovie.release_date}</p>
+                    </Col>
+                  </Row>
                 </Link>
               </li>
             )
