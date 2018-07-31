@@ -69,7 +69,6 @@ class SearchBar extends Component {
             placeholder='Search a movie'
             validate
             required>
-            <Icon>search</Icon>
           </Input>
         </Row>
         <SearchResults>
