@@ -29,7 +29,7 @@ class NewReleases extends Component {
       this.setState({
         newReleases: response.data.results
       })
-    } 
+    }
     catch (error) {
       console.error(error);
     }
@@ -43,14 +43,16 @@ class NewReleases extends Component {
         <Row>
           {this.state.newReleases.map((newMovie, i) => {
             return (
-              <Col as={Link} s={10} m={6} l={4} xl={3} key ={i} to={`/movie/${newMovie.id}`}>
-                <MoviePoster
-                  src={newMovie.poster_path
-                    ? `https://image.tmdb.org/t/p/w342${newMovie.poster_path}`
-                    : 'http://placeholder.pics/svg/342x513/DEDEDE/555555/No%20Picture'}
-                  alt={`${newMovie.title} poster`}
-                />
-              </Col>
+              <Link to={`/movie/${newMovie.id}`} key={i}>
+                <Col s={10} m={6} l={4} xl={3}>
+                  <MoviePoster
+                    src={newMovie.poster_path
+                      ? `https://image.tmdb.org/t/p/w342${newMovie.poster_path}`
+                      : 'http://placeholder.pics/svg/342x513/DEDEDE/555555/No%20Picture'}
+                    alt={`${newMovie.title} poster`}
+                  />
+                </Col>
+              </Link>
             )
           })}
         </Row>
