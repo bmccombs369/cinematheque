@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import NavBar from './NavBar';
 
 class IndividualMovie extends Component {
   state = {
@@ -30,6 +31,7 @@ class IndividualMovie extends Component {
   render() {
     return (
       <div>
+        <NavBar />
         <div>
           <img
             src={this.state.movie.poster_path
