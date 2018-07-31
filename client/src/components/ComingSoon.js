@@ -3,6 +3,12 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import SearchBar from './SearchBar';
 import { Row, Col } from 'react-materialize';
+import styled from 'styled-components';
+
+const MoviePoster = styled.img`
+  width: 342px;
+  height: 513px;
+`
 
 class ComingSoon extends Component {
   state = {
@@ -38,7 +44,7 @@ class ComingSoon extends Component {
           {this.state.comingSoon.map((comingMovie, i) => {
             return (
               <Col as={Link} s={10} m={6} l={4} xl={3} key ={i} to={`/movie/${comingMovie.id}`}>
-                <img
+                <MoviePoster
                   src={comingMovie.poster_path
                     ? `https://image.tmdb.org/t/p/w342${comingMovie.poster_path}`
                     : 'http://placeholder.pics/svg/342x513/DEDEDE/555555/No%20Picture'}
