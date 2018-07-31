@@ -50,6 +50,19 @@ class IndividualMovie extends Component {
           <div>
             Average Score: {this.state.movie.vote_average}/10
           </div>
+          <div>
+            <h2>Cast:</h2>
+            <div>
+              {this.state.credits.map((actor, i) => {
+                return(
+                  <figure key= {i}>
+                    <img src={`https://image.tmdb.org/t/p/w200${actor.profile_path}`} alt={``} />
+                    <figcaption>{`${actor.name} as ${actor.character}`}</figcaption>
+                  </figure>
+                )
+              })}
+            </div>
+          </div>
         </div>
       </div>
     );
