@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import NewReleases from './NewReleases';
 import ComingSoon from './ComingSoon';
+import NavBar from './NavBar';
 
 class HomePage extends Component {
   state = {
@@ -15,6 +16,7 @@ class HomePage extends Component {
   render() {
     return (
       <div>
+        <NavBar />
         <button onClick={this.toggleMovieListings}>
           {this.state.newReleasesShowing ? 'Show Coming Soon' : 'Show New Releases'}
         </button>

@@ -29,7 +29,7 @@ class ComingSoon extends Component {
       this.setState({
         comingSoon: response.data.results
       })
-    } 
+    }
     catch (error) {
       console.error(error);
     }
@@ -43,14 +43,16 @@ class ComingSoon extends Component {
         <Row>
           {this.state.comingSoon.map((comingMovie, i) => {
             return (
-              <Col as={Link} s={10} m={6} l={4} xl={3} key ={i} to={`/movie/${comingMovie.id}`}>
-                <MoviePoster
-                  src={comingMovie.poster_path
-                    ? `https://image.tmdb.org/t/p/w342${comingMovie.poster_path}`
-                    : 'http://placeholder.pics/svg/342x513/DEDEDE/555555/No%20Picture'}
-                  alt={`${comingMovie.title} poster`}
-                />
-              </Col>
+              <Link  to={`/movie/${comingMovie.id}`} key={i}>
+                <Col s={10} m={6} l={4} xl={3}>
+                  <MoviePoster
+                    src={comingMovie.poster_path
+                      ? `https://image.tmdb.org/t/p/w342${comingMovie.poster_path}`
+                      : 'http://placeholder.pics/svg/342x513/DEDEDE/555555/No%20Picture'}
+                    alt={`${comingMovie.title} poster`}
+                  />
+                </Col>
+              </Link>
             )
           })}
         </Row>
