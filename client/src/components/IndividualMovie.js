@@ -59,7 +59,7 @@ class IndividualMovie extends Component {
                     <img
                       src={actor.profile_path
                         ? `https://image.tmdb.org/t/p/w200${actor.profile_path}`
-                        : 'http://placeholder.pics/svg/200x300'}
+                        : 'http://placeholder.pics/svg/200x300/DEDEDE/555555/No%20Picture'}
                       alt={actor.name}
                     />
                     <figcaption>{`${actor.name} as ${actor.character}`}</figcaption>
