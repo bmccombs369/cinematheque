@@ -3,7 +3,7 @@
 class Api::ListsController < ApplicationController
   
   def index
-    @lists = List.All
+    @lists = List.all
     render json: @lists
   end
 
