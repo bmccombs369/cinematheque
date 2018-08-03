@@ -2,6 +2,12 @@ import React, { Component } from 'react';
 import NewReleases from './NewReleases';
 import ComingSoon from './ComingSoon';
 import NavBar from './NavBar';
+import styled from 'styled-components';
+
+const HomePageWrapper = styled.div`
+  align-items: center;
+  margin: auto;
+`
 
 class HomePage extends Component {
   state = {
@@ -15,7 +21,7 @@ class HomePage extends Component {
 
   render() {
     return (
-      <div>
+      <HomePageWrapper>
         <NavBar />
         <button onClick={this.toggleMovieListings}>
           {this.state.newReleasesShowing ? 'Show Coming Soon' : 'Show New Releases'}
@@ -23,7 +29,7 @@ class HomePage extends Component {
         <div>
           {this.state.newReleasesShowing ? <NewReleases /> : <ComingSoon />}
         </div>
-      </div>
+      </HomePageWrapper>
     );
   }
 }

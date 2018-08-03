@@ -26,6 +26,12 @@ const MoviePoster = styled.img`
   height: 150px;
 `
 
+const SearchBarWrapper = styled.div`
+  align-items: center;
+  margin: auto;
+  width: 75%;
+`
+
 class SearchBar extends Component {
   state = {
     query: '',
@@ -57,7 +63,7 @@ class SearchBar extends Component {
 
   render() {
     return (
-      <div>
+      <SearchBarWrapper>
         <Row onSubmit={this.preventSubmit}>
           <Input
             s={10}
@@ -96,7 +102,7 @@ class SearchBar extends Component {
             )
           })}
         </SearchResults>
-      </div>
+      </SearchBarWrapper>
     );
   }
 }

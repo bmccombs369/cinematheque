@@ -10,6 +10,13 @@ const MoviePoster = styled.img`
   height: 513px;
 `
 
+const ComingSoonWrapper = styled(Row)`
+  align-items: center;
+  margin: auto;
+  width: 75%;
+`
+
+
 class ComingSoon extends Component {
   state = {
     comingSoon: []
@@ -40,7 +47,7 @@ class ComingSoon extends Component {
       <div>
         <SearchBar />
         <h2>Coming Soon</h2>
-        <Row>
+        <ComingSoonWrapper>
           {this.state.comingSoon.map((comingMovie, i) => {
             return (
               <Link  to={`/movie/${comingMovie.id}`} key={i}>
@@ -55,7 +62,7 @@ class ComingSoon extends Component {
               </Link>
             )
           })}
-        </Row>
+        </ComingSoonWrapper>
       </div>
     );
   }

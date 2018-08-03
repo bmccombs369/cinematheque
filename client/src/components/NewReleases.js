@@ -10,6 +10,13 @@ const MoviePoster = styled.img`
   height: 513px;
 `
 
+const NewReleasesWrapper = styled(Row)`
+  align-items: center;
+  margin: auto;
+  width: 75%;
+`
+
+
 class NewReleases extends Component {
   state = {
     newReleases: []
@@ -40,7 +47,7 @@ class NewReleases extends Component {
       <div>
         <SearchBar />
         <h2>New Releases</h2>
-        <Row>
+        <NewReleasesWrapper>
           {this.state.newReleases.map((newMovie, i) => {
             return (
               <Link to={`/movie/${newMovie.id}`} key={i}>
@@ -55,7 +62,7 @@ class NewReleases extends Component {
               </Link>
             )
           })}
-        </Row>
+        </NewReleasesWrapper>
       </div>
     );
   }
