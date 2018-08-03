@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Icon } from 'react-materialize';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -20,7 +19,7 @@ class NavBar extends Component {
     return (
       <Bar>
         <StyledLink to={'/'}>
-          <h4><Icon>movie</Icon> cin·e·ma·theque</h4>
+          <h4>cin·e·ma·theque</h4>
         </StyledLink>
       </Bar>
     );
