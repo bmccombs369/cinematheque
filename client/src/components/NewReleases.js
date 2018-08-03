@@ -6,8 +6,8 @@ import { Row, Col } from 'react-materialize';
 import styled from 'styled-components';
 
 const MoviePoster = styled.img`
-  width: 342px;
-  height: 513px;
+  width: 100%;
+  height: 150%;
 `
 
 const NewReleasesWrapper = styled(Row)`
