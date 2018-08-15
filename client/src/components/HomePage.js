@@ -10,6 +10,13 @@ const HomePageWrapper = styled.div`
   margin: auto;
 `
 
+const ToggleButton = styled.button`
+  background-color: #f3f3f3;
+  &:focus {
+    background-color: #f3f3f3;
+  }
+`
+
 class HomePage extends Component {
   state = {
     newReleasesShowing: true
@@ -25,9 +32,9 @@ class HomePage extends Component {
       <HomePageWrapper>
         <NavBar />
         <SearchBar />
-        <button onClick={this.toggleMovieListings}>
+        <ToggleButton onClick={this.toggleMovieListings}>
           {this.state.newReleasesShowing ? 'Show Coming Soon' : 'Show New Releases'}
-        </button>
+        </ToggleButton>
         <div>
           {this.state.newReleasesShowing ? <NewReleases /> : <ComingSoon />}
         </div>
