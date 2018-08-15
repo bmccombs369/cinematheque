@@ -5,7 +5,8 @@ class Api::MoviesController < ApplicationController
   end
 
   def show
-
+    @movie = Movie.find(params[:id])
+    render json: @movie
   end
 
   def create
