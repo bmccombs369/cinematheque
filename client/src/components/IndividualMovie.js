@@ -6,12 +6,26 @@ import styled from 'styled-components';
 
 const ActorImage = styled.img`
   width: 110%;
+  justify-content: space-around;
+`
+
+const Cast = styled(Row)`
+  align-content: center;
+  justify-content: space-around
 `
 
 const MovieInfo = styled(Row)`
   justify-content: space-around;
   margin-top: 10px;
   width: 97%;
+`
+
+const MoviePoster = styled.div`
+  width: 100%;
+`
+
+const MovieSummary = styled.div`
+  width: 100%;
 `
 
 class IndividualMovie extends Component {
@@ -29,7 +43,7 @@ class IndividualMovie extends Component {
       const apiKey = '9a25e1555b7eca6261c39235272224a8';
       const response = await axios.get(`https://api.themoviedb.org/3/movie/${this.props.match.params.id}?api_key=${apiKey}&language=en-US&append_to_response=credits`);
       let credits = response.data.credits.cast;
-      credits = credits.slice(0, 4);
+      credits = credits.slice(0, 6);
       this.setState({
         movie: response.data,
         credits
@@ -46,35 +60,37 @@ class IndividualMovie extends Component {
         <NavBar />
         <MovieInfo>
           <Col s={12} m={6}>
-            <div>
+            <MoviePoster>
               <img
                 src={this.state.movie.poster_path
                   ? `https://image.tmdb.org/t/p/w342${this.state.movie.poster_path}`
                   : 'http://via.placeholder.com/342x513'}
                 alt={`${this.state.movie.title} poster`}
               />
-            </div>
+            </MoviePoster>
           </Col>
           <Col s={12} m={6}>
-            <div>
-              <h1>{this.state.movie.title}</h1>
-              <h4>{this.state.movie.tagline}</h4>
-              <p>{this.state.movie.overview}</p>
-            </div>
-            <div>
-              <b>Released:</b> {this.state.movie.release_date}
-            </div>
-            <div>
-              <b>Average Score:</b> {this.state.movie.vote_average}/10
-          </div>
+            <MovieSummary>
+              <div>
+                <h1>{this.state.movie.title}</h1>
+                <h4>{this.state.movie.tagline}</h4>
+                <p>{this.state.movie.overview}</p>
+              </div>
+              <div>
+                <b>Released:</b> {this.state.movie.release_date}
+              </div>
+              <div>
+                <b>Average Score:</b> {this.state.movie.vote_average}/10
+              </div>
+            </MovieSummary>
           </Col>
         </MovieInfo>
         <div>
           <h2>Cast:</h2>
-          <Row>
+          <Cast>
             {this.state.credits.map((actor, i) => {
               return (
-                <Col s={6} m={3}>
+                <Col s={6} m={4} l={3}>
                   <figure key={i}>
                     <ActorImage
                       src={actor.profile_path
@@ -87,7 +103,7 @@ class IndividualMovie extends Component {
                 </Col>
               )
             })}
-          </Row>
+          </Cast>
         </div>
       </div>
     );
