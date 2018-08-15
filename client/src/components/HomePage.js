@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import NewReleases from './NewReleases';
 import ComingSoon from './ComingSoon';
 import NavBar from './NavBar';
+import SearchBar from './SearchBar';
 import styled from 'styled-components';
 
 const HomePageWrapper = styled.div`
@@ -23,6 +24,7 @@ class HomePage extends Component {
     return (
       <HomePageWrapper>
         <NavBar />
+        <SearchBar />
         <button onClick={this.toggleMovieListings}>
           {this.state.newReleasesShowing ? 'Show Coming Soon' : 'Show New Releases'}
         </button>

@@ -10,6 +10,8 @@ const ActorImage = styled.img`
 
 const MovieInfo = styled(Row)`
   justify-content: space-around;
+  margin-top: 10px;
+  width: 97%;
 `
 
 class IndividualMovie extends Component {

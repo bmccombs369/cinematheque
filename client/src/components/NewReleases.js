@@ -7,7 +7,6 @@ import styled from 'styled-components';
 
 const MoviePoster = styled.img`
   width: 100%;
-  height: 150%;
 `
 
 const NewReleasesWrapper = styled(Row)`
@@ -45,7 +44,6 @@ class NewReleases extends Component {
   render() {
     return (
       <div>
-        <SearchBar />
         <h2>New Releases</h2>
         <NewReleasesWrapper>
           {this.state.newReleases.map((newMovie, i) => {

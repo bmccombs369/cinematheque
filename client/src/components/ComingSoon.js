@@ -7,7 +7,6 @@ import styled from 'styled-components';
 
 const MoviePoster = styled.img`
   width: 100%;
-  height: 150%;
 `
 
 const ComingSoonWrapper = styled(Row)`
@@ -45,7 +44,6 @@ class ComingSoon extends Component {
   render() {
     return (
       <div>
-        <SearchBar />
         <h2>Coming Soon</h2>
         <ComingSoonWrapper>
           {this.state.comingSoon.map((comingMovie, i) => {

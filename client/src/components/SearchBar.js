@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import { Row, Input, Icon, Col } from 'react-materialize';
+import { Row, Input, Col } from 'react-materialize';
 import styled from 'styled-components';
 
 const SearchResults = styled.ul`
@@ -67,17 +67,17 @@ class SearchBar extends Component {
         <Row onSubmit={this.preventSubmit}>
           <Input
             s={10}
+            onKeyUp={this.handleKeyUp}
             onChange={this.handleChange}
             type='text'
             name='query'
             value={this.state.query}
-            onKeyUp={this.handleKeyUp}
             placeholder='Search a movie'
             validate
             required>
           </Input>
         </Row>
-        <SearchResults>
+        { this.state.query === '' ? null : <SearchResults>
           {this.state.searchResults.map((searchedMovie, i) => {
             return (
               <li key={i}>
@@ -101,7 +101,7 @@ class SearchBar extends Component {
               </li>
             )
           })}
-        </SearchResults>
+        </SearchResults> }
       </SearchBarWrapper>
     );
   }
